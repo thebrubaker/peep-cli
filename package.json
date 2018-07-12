@@ -1,0 +1,30 @@
+{
+  "name": "peep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "peep": "bin/peep"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.274.1",
+    "boxen": "^1.3.0",
+    "chalk": "^2.4.1",
+    "cli-table3": "^0.5.0",
+    "conf": "^2.0.0",
+    "express": "^4.16.3",
+    "listr": "^0.14.1",
+    "log-symbols": "^2.2.0",
+    "ngrok": "^3.0.1",
+    "ora": "^2.1.0",
+    "progress": "^2.0.0",
+    "terminal-link": "^1.1.0",
+    "vorpal": "^1.12.0",
+    "yn": "^2.0.0"
+  }
+}
