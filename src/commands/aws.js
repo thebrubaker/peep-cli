@@ -72,6 +72,7 @@ class AwsCommand extends Command {
     try {
       await fs.ensureFile(path)
     } catch (error) {
+      // Error means it didn't exist, but has now been created.
       this.log('')
       this.log(`Created AWS credentials file at ${path}`)
     }
@@ -80,6 +81,7 @@ class AwsCommand extends Command {
   }
 
   async removeDataFromFile(path) {
+    // Removes all data from the file
     await fs.truncate(path, 0)
     this.log('')
     this.log(`Removed old credentials from ${path}`)
@@ -89,6 +91,7 @@ class AwsCommand extends Command {
 
   async canAccessFile(path) {
     try {
+      // Checks both read and write access
       await fs.access(path, fs.constants.R_OK | fs.constants.W_OK)
     } catch (e) {
       this.log('')
