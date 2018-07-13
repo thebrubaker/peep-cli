@@ -26,7 +26,7 @@ const awsSecret = {
   message: 'What is your AWS access key secret?',
   validate(input) {
     if (!input) {
-      return Promise.reject('The access key ID is required.')
+      return Promise.reject('The access key secret is required.')
     }
 
     return Promise.resolve(true)
@@ -43,7 +43,7 @@ class AwsCommand extends Command {
     // Verify user can read / write to file
     await this.canAccessFile(credentialsPath)
 
-    // If new flag, we truncate the data in the file
+    // If new flag, we remove the file's data so we can write new credentials
     if (flags.new) {
       await this.removeDataFromFile(credentialsPath)
     }
@@ -63,6 +63,7 @@ class AwsCommand extends Command {
       this.log(`Credentials saved to ${credentialsPath}`)
     }
 
+    // Finally we log the credentials to the user to preview
     this.log('')
     await this.logCredentials(credentialsPath)
   }
